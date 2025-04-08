@@ -1,8 +1,12 @@
-import { ErrorRequestHandler } from 'express'
+import { ErrorRequestHandler, NextFunction, Request, Response } from 'express'
 
 export class ErrorResponse extends Error {
     discriminator = 'error-response'
-    constructor(readonly statusCode: number, readonly errorCode: string, readonly debugMessage: string | undefined, readonly loggable: boolean) {
+    constructor(
+        readonly statusCode: number,
+        readonly errorCode: string,
+        readonly debugMessage: string | undefined,
+        readonly loggable: boolean) {
         super(debugMessage)
     }
 }
@@ -11,7 +15,7 @@ function isErrorResponse(variable: any) {
     return variable['discriminator'] === 'error-response'
 }
 
-export const errorMiddleware: ErrorRequestHandler = (cause: Error, request, response, _) => {
+export const errorMiddleware: ErrorRequestHandler = (cause: Error, request: Request, response: Response, _: NextFunction) => {
    
     if (isErrorResponse(cause)) {
         const error = cause as ErrorResponse

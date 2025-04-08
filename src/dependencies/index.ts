@@ -11,5 +11,4 @@ export function initializeDependencies() {
     internalService = new InternalService()
     signatureVerifier = new GithubWebhookSignatureVerifier(GITHUB_WEBHOOK_SECRET)
     webhookService = new InternalWebhookService(INTERNAL_SERVICE_URL)
-
 }
