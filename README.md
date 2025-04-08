@@ -82,7 +82,7 @@ Use ngrok for public endpoint exposure
 
 Test with GitHub "ping" and real webhook events (e.g., push, commit)
 
-##🧰 Suggested Automated Tests
+## 🧰 Suggested Automated Tests
 
 ### 1. SignatureVerifier Unit Tests
 
