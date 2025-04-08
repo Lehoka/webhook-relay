@@ -1,7 +1,7 @@
 export class Delayer {
 
-    static async randomDelay(): Promise<void> {
-        const delay = Math.floor(Math.random() * 30000)
+    static async randomDelay(maxMilliseconds: number): Promise<void> {
+        const delay = Math.floor(Math.random() * maxMilliseconds)
         return new Promise(resolve => setTimeout(resolve, delay))
     }
 
