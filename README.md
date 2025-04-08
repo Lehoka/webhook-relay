@@ -1,6 +1,6 @@
-#🛠️ Technical Plan
+# 🛠️ Technical Plan
 
-##🎯 Goal
+## 🎯 Goal
 
 Build a Webhook Relay Service using Node.js + TypeScript that:
 
@@ -12,7 +12,7 @@ Relays valid webhooks to an internal service
 
 Handles network delays and random failures gracefully
 
-##✅ Step-by-step Plan
+## ✅ Step-by-step Plan
 
 Project Setup
 
@@ -58,7 +58,7 @@ Use ngrok to expose the local server to the public
 
 Add ngrok URL to GitHub Webhook settings
 
-#🔒 Assumptions & Challenges
+# 🔒 Assumptions & Challenges
 
 Webhook payload is safely forwardable as-is
 
@@ -70,13 +70,13 @@ Internal service may randomly fail or delay
 
 No persistent storage or logging for now
 
-#✅ Test Plan
+# ✅ Test Plan
 
-##🎯 Objective
+## 🎯 Objective
 
 Ensure system handles validation, forwarding, and failure scenarios correctly.
 
-##🧪 Manual Testing
+## 🧪 Manual Testing
 
 Use ngrok for public endpoint exposure
 
@@ -84,13 +84,13 @@ Test with GitHub "ping" and real webhook events (e.g., push, commit)
 
 ##🧰 Suggested Automated Tests
 
-###1. SignatureVerifier Unit Tests
+### 1. SignatureVerifier Unit Tests
 
 Valid signature → returns true
 
 Invalid/missing signature → returns false
 
-###2. WebhookMiddleware Integration Tests
+### 2. WebhookMiddleware Integration Tests
 
 Valid signature and successful relay → 200
 
@@ -98,7 +98,7 @@ Invalid signature → 400
 
 Internal service fails → 500
 
-###3. Load Testing with Vegeta
+### 3. Load Testing with Vegeta
 
 Sample Command:
 
